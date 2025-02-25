@@ -1,18 +1,17 @@
-const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
+const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
-  entry: './src/main.js',
+  mode: "development",
+  entry: "./src/main.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/vuetify-2.7-vue-config-webpack-template/' // Replace with your repo name
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
   },
   devServer: {
-    static: './dist',
+    static: "./dist",
     hot: true,
     historyApiFallback: true, // Add this line
   },
@@ -20,32 +19,28 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: "vue-loader",
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
@@ -54,20 +49,21 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src/public/index.html'),
-      base: '/vuetify-2.7-vue-config-webpack-template/' // Replace with your repo name
+      template: path.resolve(__dirname, "src/public/index.html"),
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        VUE_ROUTER_MODE: JSON.stringify('history'),
-        VUE_ROUTER_BASE: JSON.stringify('/'),
+      "process.env": {
+        VUE_ROUTER_MODE: JSON.stringify("history"),
+        VUE_ROUTER_BASE: JSON.stringify(
+          "/vuetify-2.7-vue-config-webpack-template/"
+        ), // Match the router base
       },
     }),
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js',
+      vue$: "vue/dist/vue.esm.js",
     },
-    extensions: ['*', '.js', '.vue', '.json'],
+    extensions: ["*", ".js", ".vue", ".json"],
   },
 };
