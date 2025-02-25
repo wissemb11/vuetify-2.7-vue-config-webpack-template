@@ -5,7 +5,11 @@ import 'vuetify/dist/vuetify.min.css';
 Vue.use(Vuetify);
 
 export default new Vuetify({
+  icons: {
+    iconfont: 'mdi', // Use Material Design Icons
+  },
   theme: {
+    dark: false,
     themes: {
       light: {
         primary: '#1976D2',
@@ -14,8 +18,8 @@ export default new Vuetify({
         error: '#FF5252',
         info: '#2196F3',
         success: '#4CAF50',
-        warning: '#FFC107',
-      },
-    },
-  },
+        warning: '#FFC107'
+      }
+    }
+  }
 });
