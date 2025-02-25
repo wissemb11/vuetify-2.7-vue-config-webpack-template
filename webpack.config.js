@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/vuetify-2.7-vue-config-webpack-template/' // Replace with your repo name
   },
   devServer: {
     static: './dist',
@@ -54,6 +55,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/public/index.html'),
+      base: '/vuetify-2.7-vue-config-webpack-template/' // Replace with your repo name
     }),
     new webpack.DefinePlugin({
       'process.env': {
