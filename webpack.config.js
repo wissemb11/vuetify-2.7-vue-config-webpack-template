@@ -1,5 +1,6 @@
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin"); // Import the plugin
 const webpack = require("webpack");
 const path = require("path");
 
@@ -13,7 +14,7 @@ module.exports = {
   devServer: {
     static: "./dist",
     hot: true,
-    historyApiFallback: true, // Add this line
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -56,8 +57,16 @@ module.exports = {
         VUE_ROUTER_MODE: JSON.stringify("history"),
         VUE_ROUTER_BASE: JSON.stringify(
           "/vuetify-2.7-vue-config-webpack-template/"
-        ), // Match the router base
+        ),
       },
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/public/404.html"), // Path to your 404.html template
+          to: path.resolve(__dirname, "dist/404.html"), // Output path in dist folder
+        },
+      ],
     }),
   ],
   resolve: {
