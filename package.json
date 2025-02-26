@@ -4,6 +4,7 @@
     "description": "A minimal Vuetify 2.7 template using Webpack with webpack.config.js for advanced customization.",
     "author": "Wissem Boughamoura",
     "license": "MIT",
+    "homepage": "https://wissemb11.github.io/vuetify-2.7-vue-config-webpack-template/",
     "repository": {
         "type": "git",
         "url": "https://github.com/wissemb11/vuetify-2.7-vue-config-webpack-template.git"
